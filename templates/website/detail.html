@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% block title %}{{ item.seo_title|default:item.title }} — MicroX{% endblock %}{% block content
+%}<section class="page-head">
+    <div class="kicker">{{ kind|upper }}</div>
+    <h1>{{ item.title }}</h1>
+    <p>{{ item.summary }}</p>
+</section>
+<section class="section readable">
+    <div class="body-text">{{ item.body|linebreaks }}</div>{% if item.challenge %}<h2>The challenge</h2>
+    <p>{{ item.challenge }}</p>
+    <h2>Our solution</h2>
+    <p>{{ item.solution }}</p>
+    <h2>The outcome</h2>
+    <p>{{ item.results }}</p>{% endif %}<a class="btn" href="{% url 'quote' %}">Let's work together ↗</a>
+</section>{% endblock %}

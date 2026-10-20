@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">INSIGHTS</div>
+    <h1>Ideas & <em>perspectives.</em></h1>
+</section>
+<section class="section">
+    <div class="service-grid">{% for item in items %}<a class="service-card" href="{% url 'post_detail' item.slug %}">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.summary }}</p><span class="arrow">↗</span>
+        </a>{% empty %}<p>New insights coming soon.</p>{% endfor %}</div>
+</section>{% endblock %}

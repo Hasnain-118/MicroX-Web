@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">LET'S CONNECT</div>
+    <h1>{% if kind == 'quote' %}Tell us about<br><em>your project.</em>{% else %}Let's start
+        a<br><em>conversation.</em>{% endif %}</h1>
+    <p>Tell us what you're imagining. We'd love to hear it.</p>
+</section>
+<section class="section">
+    <form method="post" class="form-panel">{% csrf_token %}{{ form.as_p }}<button class="btn" type="submit">Send enquiry
+            ↗</button></form>
+</section>{% endblock %}

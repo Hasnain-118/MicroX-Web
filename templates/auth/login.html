@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">WELCOME BACK</div>
+    <h1>Sign <em>in.</em></h1>
+</section>
+<section class="section">
+    <form class="form-panel" method="post">{% csrf_token %}{{ form.as_p }}<button class="btn">Sign in ↗</button>
+        <p>New here? <a href="{% url 'signup' %}">Create account</a></p>
+    </form>
+</section>{% endblock %}

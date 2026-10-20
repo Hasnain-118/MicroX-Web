@@ -1,0 +1,3 @@
+from django.urls import path
+from . import views
+urlpatterns=[path('',views.landing,name='hackathon'),path('signup/',views.signup,name='signup'),path('dashboard/',views.dashboard,name='dashboard'),path('teams/join/',views.join_team,name='join_team'),path('teams/<int:team_id>/submit/',views.submit,name='submit'),path('judge/',views.judge,name='judge'),path('judge/<int:assignment_id>/score/',views.score,name='score'),path('<slug:slug>/',views.event_detail,name='event'),path('<slug:slug>/register/',views.register,name='register_event'),path('<slug:slug>/teams/create/',views.create_team,name='create_team'),path('<slug:slug>/results/',views.results,name='results')]

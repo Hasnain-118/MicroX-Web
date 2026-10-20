@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">OFFICIAL RESULTS</div>
+    <h1>{{ event.name }} <em>results.</em></h1>
+</section>
+<section class="section">
+    <div class="service-grid">{% for s in submissions %}<div class="service-card"><span class="service-num">RANK {{
+                forloop.counter }}</span>
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.team.name }}</p><strong>Average score: {{ s.avg_score|floatformat:1|default:'Pending' }}</strong>
+        </div>{% empty %}<p>There are no scored submissions.</p>{% endfor %}</div>
+</section>{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">OUR EXPERTISE</div>
+    <h1>What we <em>do.</em></h1>
+    <p>Thoughtful digital solutions, built around your needs.</p>
+</section>
+<section class="section">
+    <div class="service-grid">{% for item in items %}<a class="service-card"
+            href="{% url 'service_detail' item.slug %}"><span class="service-icon">{{ item.icon }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.summary }}</p><span class="arrow">↗</span>
+        </a>{% empty %}<p>Services will be published here soon.</p>{% endfor %}</div>
+</section>{% endblock %}

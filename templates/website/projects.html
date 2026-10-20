@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">OUR PORTFOLIO</div>
+    <h1>Selected <em>work.</em></h1>
+    <p>Real solutions for real challenges.</p>
+</section>
+<section class="section">
+    <div class="project-grid">{% for p in items %}<a class="project-card" href="{% url 'project_detail' p.slug %}">
+            <div class="project-visual">{% if p.image_url %}<img src="{{ p.image_url }}" alt="{{ p.title }}">{% else
+                %}<span>MICROX / PROJECT</span>{% endif %}</div>
+            <div class="project-meta">
+                <div><small>{{ p.industry }}</small>
+                    <h3>{{ p.title }}</h3>
+                </div><span>↗</span>
+            </div>
+        </a>{% empty %}<p>Case studies are coming soon.</p>{% endfor %}</div>
+</section>{% endblock %}

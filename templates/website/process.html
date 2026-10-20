@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">HOW WE WORK</div>
+    <h1>A better way<br>to <em>build.</em></h1>
+</section>
+<section class="section">
+    <div class="service-grid">{% for step in '123456' %}<div class="service-card"><span class="service-num">STEP 0{{
+                forloop.counter }}</span>
+            <h3>{% cycle 'Discover' 'Design' 'Build' 'Test' 'Launch' 'Support' %}</h3>
+            <p>Clear collaboration, thoughtful decisions and measurable progress at every stage.</p>
+        </div>{% endfor %}</div>
+</section>{% endblock %}

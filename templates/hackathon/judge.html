@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">JUDGING PORTAL</div>
+    <h1>Your <em>assignments.</em></h1>
+</section>
+<section class="section">
+    <div class="service-grid">{% for a in assignments %}<div class="service-card">
+            <h3>{{ a.submission.title }}</h3>
+            <p>{{ a.submission.description|truncatewords:30 }}</p><a href="{% url 'score' a.id %}">Review and score
+                ↗</a>
+        </div>{% empty %}<p>No assigned submissions.</p>{% endfor %}</div>
+</section>{% endblock %}

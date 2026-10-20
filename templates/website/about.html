@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">ABOUT MICROX</div>
+    <h1>People first.<br><em>Progress always.</em></h1>
+    <p>We believe the best digital experiences start with listening, curiosity and craft.</p>
+</section>
+<section class="section">
+    <div class="section-top">
+        <h2>Our <em>team.</em></h2>
+    </div>
+    <div class="service-grid">{% for member in members %}<div class="service-card">
+            <h3>{{ member.title }}</h3>
+            <p>{{ member.role }}</p>{% if member.linkedin %}<a href="{{ member.linkedin }}"
+                rel="noopener noreferrer">LinkedIn ↗</a>{% endif %}
+        </div>{% empty %}<p>Meet our team soon.</p>{% endfor %}</div>
+</section>{% endblock %}

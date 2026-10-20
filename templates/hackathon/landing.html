@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">MICROX COMMUNITY</div>
+    <h1>Build bold.<br><em>Think beyond.</em></h1>
+    <p>Meet builders, find your team and turn your idea into a working project.</p>
+</section>
+<section class="section">
+    <div class="section-top">
+        <h2>Upcoming <em>events.</em></h2>
+    </div>
+    <div class="service-grid">{% for event in events %}<a class="service-card" href="{% url 'event' event.slug %}"><span
+                class="service-num">HACKATHON</span>
+            <h3>{{ event.name }}</h3>
+            <p>{{ event.description|truncatewords:25 }}</p><span class="arrow">↗</span>
+        </a>{% empty %}<p>Event details will be announced soon.</p>{% endfor %}</div>
+</section>{% endblock %}

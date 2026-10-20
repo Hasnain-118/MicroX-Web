@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">MICROX PORTAL</div>
+    <h1>{{ heading }}</h1>
+</section>
+<section class="section">
+    <form class="form-panel" method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button
+            class="btn" type="submit" {% if submission %}name="action" value="draft" {% endif %}>{{ button }}
+            ↗</button>{% if submission %}<button class="btn-outline" type="submit" name="action" value="submit">Submit
+            final ↗</button>{% endif %}</form>
+</section>{% endblock %}

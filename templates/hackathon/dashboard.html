@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% block content %}<section class="page-head">
+    <div class="kicker">PARTICIPANT SPACE</div>
+    <h1>Your <em>dashboard.</em></h1>
+    <p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
+</section>
+<section class="section">
+    <h2>Registrations</h2>
+    <div class="service-grid">{% for r in registrations %}<div class="service-card">
+            <h3>{{ r.event.name }}</h3>
+            <p>Registration confirmed</p><a href="{% url 'create_team' r.event.slug %}">Create team ↗</a>
+        </div>{% empty %}<p>You haven't registered for an event. <a href="{% url 'hackathon' %}">Browse events</a></p>{%
+        endfor %}</div>
+    <h2>Your teams</h2>
+    <div class="service-grid">{% for m in memberships %}<div class="service-card">
+            <h3>{{ m.team.name }}</h3>
+            <p>Invite code: <strong>{{ m.team.invite_code }}</strong></p><a href="{% url 'submit' m.team.id %}">Manage
+                submission ↗</a>
+        </div>{% empty %}<p>You haven't joined a team yet.</p>{% endfor %}</div>
+    <form class="form-panel" action="{% url 'join_team' %}" method="post">{% csrf_token %}<label for="code">Join a team
+            with invite code</label><input id="code" name="invite_code" required><button class="btn">Join team
+            ↗</button></form>
+    <h2>Announcements</h2>{% for a in announcements %}<article class="announcement">
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.body }}</p>
+    </article>{% empty %}<p>No announcements yet.</p>{% endfor %}
+</section>{% endblock %}
