@@ -28,7 +28,7 @@ class Membership(models.Model):
  team=models.ForeignKey(Team,on_delete=models.CASCADE,related_name='memberships');user=models.ForeignKey(U,on_delete=models.CASCADE);event=models.ForeignKey(Event,on_delete=models.CASCADE);joined_at=models.DateTimeField(auto_now_add=True)
  class Meta:constraints=[models.UniqueConstraint(fields=['event','user'],name='one_team_per_event'),models.UniqueConstraint(fields=['team','user'],name='one_membership_per_team')]
  def clean(self):
-  if self.team_id and self.event_id!=self.team.event_id:raise ValidationError('Event mismatch')
+   if self.team and self.event and self.event.pk!=self.team.event.pk:raise ValidationError('Event mismatch')
  def __str__(self):return f'{self.user} in {self.team}'
 class Submission(models.Model):
  STATUS=[('draft','Draft'),('submitted','Submitted'),('disqualified','Disqualified')]

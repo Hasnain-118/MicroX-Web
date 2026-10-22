@@ -1,12 +1,92 @@
-{% extends 'base.html' %}{% block content %}<section class="page-head">
-    <div class="kicker">OUR EXPERTISE</div>
-    <h1>What we <em>do.</em></h1>
-    <p>Thoughtful digital solutions, built around your needs.</p>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services | MicroX Software House{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+
+<section class="mx-services-hero">
+  <span class="mx-eyebrow">WHAT WE DO</span>
+  <h1>Technology that moves<br><em>your business forward.</em></h1>
+  <p>From digital products to intelligent automation, we design, build and maintain solutions that help businesses move confidently into the future.</p>
+  <a class="mx-primary-btn" href="{% url 'quote' %}">Discuss your project <span aria-hidden="true">↗</span></a>
 </section>
-<section class="section">
-    <div class="service-grid">{% for item in items %}<a class="service-card"
-            href="{% url 'service_detail' item.slug %}"><span class="service-icon">{{ item.icon }}</span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p><span class="arrow">↗</span>
-        </a>{% empty %}<p>Services will be published here soon.</p>{% endfor %}</div>
-</section>{% endblock %}
+
+<section class="mx-services-section" aria-labelledby="mx-services-title">
+  <div class="mx-services-intro">
+    <div>
+      <span class="mx-eyebrow">OUR EXPERTISE</span>
+      <h2 id="mx-services-title">What we bring <em>to the table.</em></h2>
+    </div>
+    <p>End-to-end digital services, engineered for performance, scalability and long-term value.</p>
+  </div>
+
+  <div class="mx-services-grid">
+    <article class="mx-service-card">
+      <div class="mx-card-top"><span>01 / DEVELOPMENT</span><span class="mx-card-icon" aria-hidden="true">⌘</span></div>
+      <h3>Web Development</h3>
+      <p>Fast, secure websites and web applications built for seamless experiences and measurable business impact.</p>
+      <ul><li>Corporate websites</li><li>Custom web applications</li><li>Business portals</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card">
+      <div class="mx-card-top"><span>02 / MOBILE</span><span class="mx-card-icon" aria-hidden="true">▣</span></div>
+      <h3>App Development</h3>
+      <p>Thoughtfully designed mobile apps that make everyday interactions simpler and more useful.</p>
+      <ul><li>Android and iOS</li><li>Cross-platform apps</li><li>API integration</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card">
+      <div class="mx-card-top"><span>03 / INTELLIGENCE</span><span class="mx-card-icon" aria-hidden="true">✳</span></div>
+      <h3>AI Solutions</h3>
+      <p>Practical AI tools that turn information into useful insights and better digital experiences.</p>
+      <ul><li>AI assistants</li><li>Smart applications</li><li>Machine learning</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card mx-service-card--dark">
+      <div class="mx-card-top"><span>04 / AUTOMATION</span><span class="mx-card-icon" aria-hidden="true">⚡</span></div>
+      <h3>AI Automation</h3>
+      <p>Connected, intelligent workflows that reduce repetitive work and free your team to focus.</p>
+      <ul><li>Workflow automation</li><li>AI agents</li><li>System integrations</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card">
+      <div class="mx-card-top"><span>05 / OPERATIONS</span><span class="mx-card-icon" aria-hidden="true">▤</span></div>
+      <h3>Software Management</h3>
+      <p>Reliable oversight and technical care to keep business-critical software running smoothly.</p>
+      <ul><li>Application management</li><li>System monitoring</li><li>Technical support</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card">
+      <div class="mx-card-top"><span>06 / MAINTENANCE</span><span class="mx-card-icon" aria-hidden="true">↻</span></div>
+      <h3>Software Updates</h3>
+      <p>Thoughtful upgrades, bug fixes and optimization that help your software stay dependable.</p>
+      <ul><li>Feature updates</li><li>Performance tuning</li><li>Ongoing maintenance</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card mx-service-card--commerce">
+      <div class="mx-card-top"><span>07 / COMMERCE</span><span class="mx-card-icon" aria-hidden="true">↗</span></div>
+      <h3>E-Commerce Development</h3>
+      <p>Online storefronts designed for smooth shopping, easy management and sustainable growth.</p>
+      <ul><li>Online stores</li><li>Checkout integration</li><li>Order management</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+    <article class="mx-service-card mx-service-card--security">
+      <div class="mx-card-top"><span>08 / SECURITY</span><span class="mx-card-icon" aria-hidden="true">♢</span></div>
+      <h3>Cybersecurity</h3>
+      <p>Protect your business with practical security reviews, application hardening and proactive risk management.</p>
+      <ul><li>Security assessments</li><li>Application security</li><li>Threat monitoring</li></ul>
+      <a href="{% url 'quote' %}">Let's talk <span aria-hidden="true">↗</span></a>
+    </article>
+  </div>
+</section>
+
+<section class="mx-services-cta" aria-labelledby="mx-cta-title">
+  <div>
+    <span class="mx-eyebrow">YOUR NEXT PROJECT STARTS HERE</span>
+    <h2 id="mx-cta-title">An idea worth building?<br><em>Let's bring it to life.</em></h2>
+    <p>Share your goals. We'll explore the right technology and a clear path forward—together.</p>
+  </div>
+  <a class="mx-primary-btn" href="{% url 'quote' %}">Start a conversation <span aria-hidden="true">↗</span></a>
+</section>
+{% endblock %}

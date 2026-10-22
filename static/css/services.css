@@ -1,0 +1,52 @@
+/* MicroX services page — intentionally scoped to .mx-* to avoid old CSS conflicts. */
+.mx-services-hero,.mx-services-section,.mx-services-cta{padding:clamp(64px,8vw,110px) max(6%,calc((100% - 1260px)/2));}
+.mx-services-hero{background:#f8f9f5}
+.mx-eyebrow{display:block;color:#6b8648;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:17px}
+.mx-services-hero h1,.mx-services-intro h2,.mx-services-cta h2{font-family:Manrope,Arial,sans-serif;font-weight:800;letter-spacing:-.055em;line-height:1.12;margin:0}
+.mx-services-hero h1{font-size:clamp(44px,6vw,82px);max-width:1000px}
+.mx-services-hero em,.mx-services-intro em{color:#83a54b;font-style:normal}
+.mx-services-hero p{max-width:620px;color:#65706b;line-height:1.8;margin:23px 0 28px}
+.mx-primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:15px 22px;border-radius:100px;background:#16251e;color:#fff;text-decoration:none;font-weight:700;font-size:13px;transition:background .32s ease,transform .42s cubic-bezier(.22,1,.36,1)}
+.mx-primary-btn:hover{background:#344b34;transform:translateY(-2px)}
+.mx-primary-btn span{font-size:18px}
+.mx-services-section{background:#f1f4ec}
+.mx-services-intro{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}
+.mx-services-intro h2{font-size:clamp(32px,3.8vw,52px)}
+.mx-services-intro>p{max-width:320px;margin:0;color:#65706b;line-height:1.7;font-size:14px}
+.mx-services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mx-service-card{display:flex;flex-direction:column;min-width:0;min-height:320px;padding:24px;background:#fff;color:#14231c;border:1px solid #e0e7dd;border-radius:17px;transition:transform .42s cubic-bezier(.22,1,.36,1),border-color .32s ease,box-shadow .42s cubic-bezier(.22,1,.36,1)}
+.mx-service-card:hover{transform:translateY(-5px);border-color:#accd83;box-shadow:0 16px 35px rgba(20,35,28,.10)}
+.mx-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;font-size:10px;letter-spacing:.12em;font-weight:800;color:#829084}
+.mx-card-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#ecf3e5;color:#63833b;font-size:22px;transition:transform .45s cubic-bezier(.22,1,.36,1),background-color .3s ease}
+.mx-service-card:hover .mx-card-icon{transform:translateY(-2px) rotate(-5deg) scale(1.04)}
+.mx-service-card h3{font-family:Manrope,Arial,sans-serif;font-size:20px;line-height:1.3;letter-spacing:-.04em;margin:0 0 10px;color:inherit}
+.mx-service-card p{font-size:13px;line-height:1.65;color:#647168;margin:0 0 15px}
+.mx-service-card ul{padding:0;margin:0 0 18px;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
+.mx-service-card li{background:#f0f4eb;color:#526851;padding:6px 9px;border-radius:7px;font-size:11px;line-height:1.3}
+.mx-service-card>a{display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:1px solid #e7ede5;padding-top:14px;color:inherit;text-decoration:none;font-size:12px;font-weight:800}
+.mx-service-card>a span{display:grid;place-items:center;border-radius:50%;width:29px;height:29px;background:#c4f15e;color:#17251d;font-size:16px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.mx-service-card:hover>a span{transform:translate(2px,-2px)}
+.mx-service-card--dark{background:#1b2a22;border-color:#1b2a22;color:#fff}
+.mx-service-card--dark .mx-card-top,.mx-service-card--dark p{color:#c6d3c9}
+.mx-service-card--dark li{background:#344338;color:#e0ecdf}
+.mx-service-card--dark>a{border-color:#415044}
+.mx-service-card--dark .mx-card-icon{background:#c4f15e;color:#18251d}
+.mx-service-card--commerce{background:#e9f3dd;border-color:#d7e6c8}
+.mx-services-cta{background:#17271e;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:32px}
+.mx-services-cta .mx-eyebrow{color:#c4f15e}
+.mx-services-cta h2{font-size:clamp(32px,4.5vw,60px)}
+.mx-services-cta h2 em{font-style:normal;color:#c4f15e}
+.mx-services-cta p{color:#c4d3c7;max-width:540px;line-height:1.7;margin:18px 0 0;font-size:14px}
+.mx-services-cta .mx-primary-btn{background:#c4f15e;color:#17271e;white-space:nowrap}
+.mx-services-cta .mx-primary-btn:hover{background:#dcff96}
+.mx-service-card a:focus-visible,.mx-primary-btn:focus-visible{outline:3px solid #93ba46;outline-offset:4px}
+@media(max-width:950px){.mx-services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mx-services-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.mx-services-grid{grid-template-columns:1fr}.mx-services-intro{display:block}.mx-services-intro>p{margin-top:15px}.mx-service-card{min-height:auto}.mx-services-hero,.mx-services-section,.mx-services-cta{padding:60px 6%}}
+@media(prefers-reduced-motion:reduce){.mx-service-card,.mx-card-icon,.mx-service-card>a span,.mx-primary-btn{transition:none}.mx-service-card:hover,.mx-primary-btn:hover{transform:none}}
+
+/* Cybersecurity accent + fine interaction polish */
+.mx-service-card--security .mx-card-icon{background:#e8f0f0;color:#315c5d}
+.mx-service-card--security:hover{border-color:#8bb9ad}
+.mx-service-card>a:hover span,.mx-service-card>a:focus-visible span{transform:translate(3px,-3px)}
+.mx-service-card:focus-within{border-color:#9fc767;box-shadow:0 0 0 3px rgba(196,241,94,.2)}
+@media(prefers-reduced-motion:reduce){.mx-service-card:hover .mx-card-icon,.mx-service-card:hover>a span,.mx-service-card>a:hover span{transform:none}}

@@ -1,0 +1,492 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services | MicroX Software House{% endblock %}
+
+{% block content %}
+
+<style> 
+
+/* =====================================
+   MICROX — COMPACT PREMIUM SERVICE CARDS
+===================================== */
+
+.microx-service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.microx-service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 340px;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e1e6dd;
+    border-radius: 16px;
+    overflow: hidden;
+    color: #111a18;
+    box-shadow: 0 2px 8px rgba(17, 26, 24, 0.02);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Subtle lime accent on hover */
+.microx-service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #a8d64b;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.microx-service-card:hover {
+    transform: translateY(-6px);
+    border-color: #b5d58a;
+    box-shadow: 0 16px 35px rgba(17, 26, 24, 0.09);
+}
+
+.microx-service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Header */
+
+.service-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.service-number {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    color: #77837b;
+}
+
+.service-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: #edf3e5;
+    color: #547a30;
+    font-size: 23px;
+    border-radius: 12px;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.microx-service-card:hover .service-symbol {
+    transform: rotate(-8deg) scale(1.08);
+    background: #dff2bd;
+}
+
+/* Content */
+
+.service-card-body {
+    margin-top: 0;
+}
+
+.microx-service-card h3 {
+    font-size: 1.45rem;
+    font-weight: 750;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+    margin: 0 0 10px;
+    color: #111a18;
+}
+
+.microx-service-card p {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #65706b;
+    margin: 0 0 17px;
+}
+
+/* Capability items */
+
+.service-capabilities {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.service-capabilities span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #405046;
+}
+
+.service-capabilities span::before {
+    content: "";
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #9ac64a;
+}
+
+/* Footer link */
+
+.service-card-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 1px solid #e7ece5;
+    color: #18241e;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.service-card-link span {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    background: #c4f15e;
+    color: #18241e;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.microx-service-card:hover .service-card-link span {
+    transform: rotate(45deg);
+}
+
+/* Featured AI Automation card */
+
+.service-card-featured {
+    background: #18241e;
+    border-color: #18241e;
+}
+
+.service-card-featured h3,
+.service-card-featured .service-card-link {
+    color: #ffffff;
+}
+
+.service-card-featured p,
+.service-card-featured .service-number {
+    color: #c3d0c4;
+}
+
+.service-card-featured .service-capabilities span {
+    color: #e3eae3;
+}
+
+.service-card-featured .service-symbol {
+    background: #c4f15e;
+    color: #18241e;
+}
+
+.service-card-featured .service-card-link {
+    border-color: rgba(255,255,255,0.18);
+}
+
+/* E-commerce card uses normal size */
+
+.service-card-wide {
+    grid-column: auto;
+    min-height: 340px;
+    background: #ffffff;
+    border-color: #e1e6dd;
+}
+
+.service-card-wide .service-card-body {
+    max-width: none;
+    margin-top: 0;
+}
+
+.service-card-wide h3 {
+    font-size: 1.45rem;
+}
+
+.service-card-wide .service-capabilities {
+    flex-direction: column;
+    gap: 7px;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .microx-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+    .microx-service-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .microx-service-card,
+    .service-card-wide {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .microx-service-card h3 {
+        font-size: 1.35rem;
+    }
+}
+
+/* Keyboard accessibility */
+
+.microx-service-card:focus-within {
+    border-color: #95bf49;
+    box-shadow: 0 0 0 3px rgba(196, 241, 94, 0.25);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .microx-service-card,
+    .microx-service-card::before,
+    .service-symbol,
+    .service-card-link span {
+        transition: none;
+    }
+
+    .microx-service-card:hover {
+        transform: none;
+    }
+}
+
+</style>
+
+
+<section class="page-head services-hero">
+    <div class="kicker">WHAT WE DO</div>
+
+    <h1>
+        Solutions built for
+        <em>what's next.</em>
+    </h1>
+
+    <p>
+        From modern websites and mobile applications to intelligent
+        AI automation, we create reliable digital solutions that
+        help businesses grow, innovate, and operate efficiently.
+    </p>
+
+    <a href="{% url 'quote' %}" class="btn">
+        Discuss your project <span>↗</span>
+    </a>
+</section>
+
+<section class="section services-section">
+
+    <div class="services-section-header">
+        <div>
+            <div class="kicker">OUR EXPERTISE</div>
+            <h2>What we bring <em>to the table.</em></h2>
+        </div>
+        <p>
+            Purposeful technology. Thoughtful engineering.
+            Real solutions for real business challenges.
+        </p>
+    </div>
+
+    
+<div class="microx-service-grid">
+
+    <article class="microx-service-card">
+        <div class="service-card-top">
+            <span class="service-number">01 / DEVELOPMENT</span>
+            <span class="service-symbol">◎</span>
+        </div>
+        <div class="service-card-body">
+            <h3>Web Development</h3>
+            <p>We design and develop responsive, high-performance websites
+                and web applications that deliver exceptional digital
+                experiences and support long-term business growth.</p>
+            <div class="service-capabilities">
+                <span>Corporate Websites</span>
+                <span>Custom Web Applications</span>
+                <span>Web Portals & Dashboards</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card">
+        <div class="service-card-top">
+            <span class="service-number">02 / MOBILE</span>
+            <span class="service-symbol">▣</span>
+        </div>
+        <div class="service-card-body">
+            <h3>App Development</h3>
+            <p>We build intuitive, reliable mobile applications
+                that combine thoughtful design with powerful
+                functionality across modern devices.</p>
+            <div class="service-capabilities">
+                <span>Android & iOS Applications</span>
+                <span>Cross-Platform Development</span>
+                <span>Mobile App Integration</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card">
+        <div class="service-card-top">
+            <span class="service-number">03 / INTELLIGENCE</span>
+            <span class="service-symbol">✳</span>
+        </div>
+        <div class="service-card-body">
+            <h3>Artificial Intelligence</h3>
+            <p>We develop AI-powered applications that help
+                organizations analyze information, enhance
+                customer experiences, and make informed decisions.</p>
+            <div class="service-capabilities">
+                <span>AI-Powered Applications</span>
+                <span>Intelligent Chatbots</span>
+                <span>Machine Learning Integration</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card service-card-featured">
+        <div class="service-card-top">
+            <span class="service-number">04 / AUTOMATION</span>
+            <span class="service-symbol">⌘</span>
+        </div>
+        <div class="service-card-body">
+            <h3>AI Automation</h3>
+            <p>We transform repetitive business processes into
+                intelligent, connected workflows that improve
+                operational efficiency and reduce manual effort.</p>
+            <div class="service-capabilities">
+                <span>Business Process Automation</span>
+                <span>AI Agents & Assistants</span>
+                <span>Workflow Integration</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card">
+        <div class="service-card-top">
+            <span class="service-number">05 / OPERATIONS</span>
+            <span class="service-symbol">▤</span>
+        </div>
+        <div class="service-card-body">
+            <h3>Software Management</h3>
+            <p>We help organizations manage and maintain their
+                software environments through structured technical
+                support, system monitoring, and operational oversight.</p>
+            <div class="service-capabilities">
+                <span>Application Management</span>
+                <span>System Monitoring</span>
+                <span>Technical Support</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card">
+        <div class="service-card-top">
+            <span class="service-number">06 / OPTIMIZATION</span>
+            <span class="service-symbol">↻</span>
+        </div>
+        <div class="service-card-body">
+            <h3>Software Maintenance</h3>
+            <p>We keep existing applications secure, stable,
+                and up to date through ongoing maintenance,
+                improvements, and technology upgrades.</p>
+            <div class="service-capabilities">
+                <span>Application Modernization</span>
+                <span>Bug Fixes & Updates</span>
+                <span>Performance Optimization</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+    <article class="microx-service-card service-card-wide">
+        <div class="service-card-top">
+            <span class="service-number">07 / DIGITAL COMMERCE</span>
+            <span class="service-symbol">↗</span>
+        </div>
+        <div class="service-card-body">
+            <h3>E-Commerce Solutions</h3>
+            <p>We create scalable online stores and digital commerce
+                platforms that simplify product management, streamline
+                shopping experiences, and support business expansion.</p>
+            <div class="service-capabilities">
+                <span>Custom Online Stores</span>
+                <span>Payment Gateway Integration</span>
+                <span>Inventory & Order Management</span>
+            </div>
+        </div>
+        <a href="{% url 'quote' %}" class="service-card-link">
+            Discuss your project <span>↗</span>
+        </a>
+    </article>
+
+</div>
+
+</section>
+
+<section class="microx-services-cta">
+    <div>
+        <div class="kicker">LET'S BUILD SOMETHING</div>
+        <h2>
+            Have an idea?
+            <em>Let's make it real.</em>
+        </h2>
+        <p>
+            Tell us about your vision. We'll help you turn it
+            into a practical digital solution.
+        </p>
+    </div>
+
+    <a href="{% url 'quote' %}" class="btn">
+        Start your project <span>↗</span>
+    </a>
+</section>
+
+{% endblock %}
